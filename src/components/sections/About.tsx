@@ -54,7 +54,7 @@ export function About() {
                 {[
                   { title: 'Casos prácticos reales', desc: 'Desafíos basados en problemáticas del entorno profesional actual.' },
                   { title: 'Evaluación por jurado', desc: 'Criterios claros y transparentes evaluados por docentes especializados.' },
-                  { title: 'Tres niveles de competencia', desc: 'Diseñado para todos los ciclos, desde el I hasta el XII.' },
+                  { title: 'Tres niveles de competencia', desc: 'Diseñado para todos los ciclos, desde el I hasta el X.' },
                 ].map((feat) => (
                   <div
                     key={feat.title}

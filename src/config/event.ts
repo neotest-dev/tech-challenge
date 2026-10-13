@@ -30,7 +30,7 @@ export const eventConfig = {
   modality: 'Competencia presencial (pendiente de confirmación)',
 
   // Ciclos disponibles
-  cycles: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'] as const,
+  cycles: ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X'] as const,
 
   // Premiación
   prizes: {
@@ -58,8 +58,6 @@ export const cycleLevelMap: Record<string, 'Básico' | 'Intermedio' | 'Avanzado'
   VIII: 'Avanzado',
   IX: 'Avanzado',
   X: 'Avanzado',
-  XI: 'Avanzado',
-  XII: 'Avanzado',
 };
 
 export type Level = 'Básico' | 'Intermedio' | 'Avanzado';

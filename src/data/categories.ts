@@ -66,7 +66,7 @@ export const categories: Category[] = [
     id: 'avanzado',
     name: 'NIVEL AVANZADO',
     cycles: 'Ciclo VII en adelante',
-    cyclesRange: ['VII', 'VIII', 'IX', 'X', 'XI', 'XII'],
+    cyclesRange: ['VII', 'VIII', 'IX', 'X'],
     description:
       'Dirigido a estudiantes con mayor dominio de programación, tecnologías emergentes e inteligencia artificial. Se prioriza la innovación, arquitecturas complejas y soluciones de alto impacto.',
     skills: [
