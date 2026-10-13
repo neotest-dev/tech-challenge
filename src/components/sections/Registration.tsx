@@ -78,7 +78,9 @@ export function Registration() {
     });
 
     if (url) {
-      window.open(url, '_blank', 'noopener,noreferrer');
+      // React Hook Form validates asynchronously; opening a new tab here can
+      // be blocked by popup protection. Navigate in the current tab instead.
+      window.location.assign(url);
     }
   };
 
