@@ -1,4 +1,4 @@
-import { useRef, useEffect, type ReactNode, type CSSProperties } from 'react';
+import { type ReactNode, type CSSProperties } from 'react';
 import { useInView } from '../../hooks/useInView';
 
 type RevealDirection = 'up' | 'left' | 'right' | 'none';
@@ -23,21 +23,13 @@ export function Reveal({
   delay = 0,
   className = '',
 }: RevealProps) {
-  const divRef = useRef<HTMLDivElement>(null);
-  const { ref, isInView } = useInView({ threshold: 0.1, once: true });
-
-  // Merge refs
-  useEffect(() => {
-    if (divRef.current) {
-      (ref as React.MutableRefObject<HTMLElement | null>).current = divRef.current;
-    }
-  });
+  const { ref, isInView } = useInView<HTMLDivElement>({ threshold: 0.1, once: true });
 
   const style: CSSProperties = delay > 0 ? { transitionDelay: `${delay}ms` } : {};
 
   return (
     <div
-      ref={divRef}
+      ref={ref}
       className={`${directionClass[direction]} ${isInView ? 'is-visible' : ''} ${className}`}
       style={style}
     >
