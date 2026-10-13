@@ -14,12 +14,43 @@ const navLinks = [
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeHref, setActiveHref] = useState('#inicio');
+  const [activeHref, setActiveHref] = useState(() => window.location.hash || '#inicio');
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const alignCurrentHash = () => {
+      const id = window.location.hash.slice(1);
+      if (!id) return;
+
+      const target = document.getElementById(decodeURIComponent(id));
+      if (!target) return;
+
+      const top = target.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+      setActiveHref(`#${target.id}`);
+    };
+
+    // React renders the anchor targets after the browser processes the URL hash.
+    // Re-align once the DOM is mounted so direct links (for example /#inicio)
+    // don't restore a stale scroll position underneath the fixed navbar.
+    const frame = window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(alignCurrentHash);
+    });
+    const restoreTimer = window.setTimeout(alignCurrentHash, 150);
+    window.addEventListener('hashchange', alignCurrentHash);
+    window.addEventListener('pageshow', alignCurrentHash);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(restoreTimer);
+      window.removeEventListener('hashchange', alignCurrentHash);
+      window.removeEventListener('pageshow', alignCurrentHash);
+    };
   }, []);
 
   useEffect(() => {
