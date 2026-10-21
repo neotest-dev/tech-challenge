@@ -31,7 +31,7 @@ const timelineSteps = [
     num: '04',
     icon: Laptop2,
     title: 'Desarrollo del Desafío',
-    desc: 'Dispones de máximo 2 horas para desarrollar tu solución con las herramientas permitidas.',
+      desc: 'La competencia se desarrolla durante una jornada, con las herramientas permitidas.',
     color: '#2563EB',
   },
   {
@@ -52,7 +52,7 @@ const timelineSteps = [
 
 const rules = [
   'Los participantes deberán presentarse 30 minutos antes del inicio.',
-  'El tiempo máximo para resolver el caso práctico será de 2 horas.',
+  'La competencia se realizará en una sola jornada.',
   'La competencia será supervisada por el Jurado Calificador.',
   'Los participantes deberán mantener una conducta ética y respetuosa durante toda la competencia.',
   'Las situaciones no previstas se resolverán conforme a las bases del concurso.',

@@ -15,7 +15,7 @@ export const eventConfig = {
   program: 'Programa de Estudios de Ingeniería Informática',
 
   // Fechas del evento
-  eventDate: '18 Y 19 NOVIEMBRE 2026',
+  eventDate: 'LUNES 23 DE NOVIEMBRE 2026',
   eventDateConfirmed: true,
   eventSchedule: 'Por confirmar',
   eventLocation: 'Por confirmar',
@@ -25,7 +25,7 @@ export const eventConfig = {
   registrationEnabled: false,
 
   // Detalles de la competencia
-  challengeDuration: '2 horas',
+  challengeDuration: '1 día',
   participants: 'Estudiantes matriculados en Ingeniería Informática, semestre 2026-2',
   modality: 'Competencia presencial (pendiente de confirmación)',
 
@@ -34,7 +34,8 @@ export const eventConfig = {
 
   // Premiación
   prizes: {
-    totalAmount: 500,
+    totalAmount: null as number | null,
+    headline: '¡Grandes premios!',
     currency: 'S/',
     confirmed: true,
     distribution: null as string | null, // null = distribución no confirmada

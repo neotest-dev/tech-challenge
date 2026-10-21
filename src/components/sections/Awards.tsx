@@ -75,13 +75,10 @@ export function Awards() {
                 <div
                   className="my-2 flex items-baseline justify-center font-bold tracking-tight"
                   style={{ fontFamily: 'var(--font-heading)' }}
-                  aria-label={`${prizes.currency} ${prizes.totalAmount} soles`}
+                  aria-label={prizes.headline}
                 >
-                  <span className="mr-2 text-4xl font-extrabold tracking-normal text-amber-300/90 sm:text-6xl lg:text-7xl">
-                    {prizes.currency}
-                  </span>
                   <span
-                    className="text-7xl font-black leading-none tracking-tight sm:text-9xl lg:text-[10rem]"
+                    className="text-5xl font-black leading-none tracking-tight text-amber-300 sm:text-7xl lg:text-8xl"
                     style={{
                       background: 'linear-gradient(180deg, #FFFFFF 0%, #FDE68A 30%, #F59E0B 75%, #D97706 100%)',
                       WebkitBackgroundClip: 'text',
@@ -90,12 +87,12 @@ export function Awards() {
                       filter: 'drop-shadow(0 10px 30px rgba(245, 158, 11, 0.45))',
                     }}
                   >
-                    {prizes.totalAmount.toLocaleString('es-PE')}
+                    {prizes.headline}
                   </span>
                 </div>
 
                 <p className="mt-2 text-sm font-semibold tracking-wide text-slate-300 sm:text-base">
-                  Premio general en efectivo otorgado al mérito competitivo
+                  Premios para reconocer el talento y el mérito competitivo
                 </p>
 
                 {/* Nota oficial del comité */}
