@@ -1,4 +1,4 @@
-import { Cpu, Code2, Brain, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Cpu, Code2, Brain, CheckCircle2 } from 'lucide-react';
 import { Reveal } from '../ui/Reveal';
 import { SectionHeading } from '../ui/SectionHeading';
 import { categories } from '../../data/categories';
@@ -125,31 +125,6 @@ export function Categories() {
                     </ul>
                   </div>
 
-                  {/* CTA */}
-                  <a
-                    href="#inscripcion"
-                    className="flex min-h-14 w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl px-6 py-3.5 text-sm font-semibold transition-all duration-300 no-underline group/btn"
-                    style={{
-                      background: cat.glowColor.replace('0.3', '0.12'),
-                      border: `1px solid ${cat.borderColor}`,
-                      color: '#FFFFFF',
-                      fontFamily: 'var(--font-heading)',
-                      letterSpacing: '0.03em',
-                    }}
-                    onMouseEnter={(e) => {
-                      const el = e.currentTarget as HTMLAnchorElement;
-                      el.style.background = cat.glowColor.replace('0.3', '0.22');
-                      el.style.boxShadow = `0 0 20px ${cat.glowColor}`;
-                    }}
-                    onMouseLeave={(e) => {
-                      const el = e.currentTarget as HTMLAnchorElement;
-                      el.style.background = cat.glowColor.replace('0.3', '0.12');
-                      el.style.boxShadow = 'none';
-                    }}
-                  >
-                    <span>{cat.cta}</span>
-                    <ArrowRight size={14} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
-                  </a>
                 </div>
               </Reveal>
             );

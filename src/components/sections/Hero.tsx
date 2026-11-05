@@ -1,17 +1,5 @@
-import { ChevronDown, Terminal, Play, Zap, FileDown, UserRoundPlus, FileCode2 } from 'lucide-react';
+import { ChevronDown, FileDown, UserRoundPlus, CalendarDays, Rocket, Flag, PartyPopper, Clock3, MapPin } from 'lucide-react';
 import { eventConfig } from '../../config/event';
-
-const codeLines = [
-  { text: 'def factorial(n):', color: '#C084FC' },
-  { text: '    if n < 0:', color: '#60A5FA' },
-  { text: "        raise ValueError('n >= 0')", color: '#94A3B8' },
-  { text: '    resultado = 1', color: '#94A3B8' },
-  { text: '    for i in range(2, n + 1):', color: '#60A5FA' },
-  { text: '        resultado *= i', color: '#94A3B8' },
-  { text: '    return resultado', color: '#C084FC' },
-  { text: '', color: 'transparent' },
-  { text: 'print(factorial(5))  # 120', color: '#10B981' },
-];
 
 export function Hero() {
   return (
@@ -87,8 +75,13 @@ export function Hero() {
                 color: '#06B6D4',
               }}
             >
-              <Zap size={16} fill="currentColor" />
+              <CalendarDays size={16} />
               {eventConfig.eventDate}
+            </div>
+
+            <div className="mb-6 flex flex-col items-center gap-1 text-sm font-semibold text-yellow-300 sm:text-base lg:items-start">
+              <span className="inline-flex items-center gap-2"><MapPin size={18} /> Lugar: Lab 301ST</span>
+              <span className="inline-flex items-center gap-2"><Clock3 size={18} /> Hora de inicio: 10:30 a. m.</span>
             </div>
 
             {/* Description */}
@@ -147,130 +140,39 @@ export function Hero() {
             </div>
           </div>
 
-          {/* ── Right: Code editor ── */}
-          <div className="min-w-0 w-full max-w-lg flex-1">
-            <div
-              className="relative rounded-2xl overflow-hidden"
-              style={{
-                background: 'rgba(13, 22, 40, 0.9)',
-                border: '1px solid rgba(37, 99, 235, 0.25)',
-                boxShadow: '0 0 60px rgba(37, 99, 235, 0.15), 0 0 120px rgba(124, 58, 237, 0.1)',
-              }}
-            >
-              {/* Editor title bar */}
-              <div
-                className="flex items-center gap-3 px-5 py-3.5"
-                style={{
-                  background: 'rgba(255,255,255,0.04)',
-                  borderBottom: '1px solid rgba(255,255,255,0.06)',
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-3 h-3 rounded-full" style={{ background: '#EF4444' }} />
-                  <div className="w-3 h-3 rounded-full" style={{ background: '#F59E0B' }} />
-                  <div className="w-3 h-3 rounded-full" style={{ background: '#10B981' }} />
-                </div>
-                <div className="flex-1 text-center flex items-center justify-center gap-2">
-                  <FileCode2 size={13} style={{ color: '#FBBF24' }} />
-                  <span className="text-xs font-mono" style={{ color: '#CBD5E1' }}>main.py</span>
-                </div>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-tech animate-pulse-glow" />
-                  <span className="text-xs font-mono" style={{ color: '#06B6D4' }}>LIVE</span>
-                </div>
-              </div>
-
-              {/* Code content */}
-              <div className="overflow-x-auto p-4 font-mono text-xs sm:p-6 sm:text-sm" style={{ lineHeight: '1.8' }}>
-                {codeLines.map((line, i) => (
-                  <div
-                    key={i}
-                    className="flex min-w-max gap-3 rounded-sm px-1 sm:gap-4"
-                    style={{ background: i === 5 ? 'rgba(37,99,235,0.08)' : 'transparent' }}
-                  >
-                    <span
-                      className="select-none w-6 text-right flex-shrink-0"
-                      style={{ color: '#334155' }}
-                    >
-                      {line.text ? i + 1 : ''}
-                    </span>
-                    <span style={{ color: line.color, whiteSpace: 'pre' }}>{line.text}</span>
-                  </div>
-                ))}
-
-                {/* Cursor */}
-                <div className="flex gap-4 mt-1">
-                  <span className="select-none w-6 text-right flex-shrink-0" style={{ color: '#334155' }}>
-                    {codeLines.length + 1}
-                  </span>
-                  <span
-                    className="inline-block w-2.5 h-5 animate-cursor rounded-sm"
-                    style={{ background: '#60A5FA', verticalAlign: 'middle' }}
-                  />
-                </div>
-              </div>
-
-              {/* Python terminal output */}
-              <div
-                className="border-t px-5 py-3"
-                style={{ background: 'rgba(4, 8, 16, 0.8)', borderColor: 'rgba(255,255,255,0.08)' }}
-              >
-                <div className="mb-2 flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-slate-400">
-                  <Terminal size={12} aria-hidden="true" />
-                  Terminal · Python
-                </div>
-                <div className="font-mono text-xs leading-relaxed sm:text-sm">
-                  <div className="text-slate-400">
-                    <span style={{ color: '#10B981' }}>❯</span> python main.py
-                  </div>
-                  <div className="text-slate-200">120</div>
-                </div>
-              </div>
-
-              {/* Bottom status bar */}
-              <div
-                className="flex items-center justify-between px-5 py-2.5"
-                style={{
-                  background: 'rgba(37, 99, 235, 0.15)',
-                  borderTop: '1px solid rgba(37, 99, 235, 0.2)',
-                }}
-              >
-                <div className="flex items-center gap-3">
-                  <Play size={12} style={{ color: '#10B981' }} fill="#10B981" />
-                  <span className="text-xs font-mono" style={{ color: '#10B981' }}>
-                    Proceso finalizado · código 0
-                  </span>
-                </div>
-                <span className="text-xs font-mono font-semibold" style={{ color: '#06B6D4' }}>
-                  Python
-                </span>
-              </div>
+          {/* ── Right: event identity and schedule ── */}
+          <div className="min-w-0 w-full max-w-xl flex-1">
+            <div className="relative mb-5 overflow-hidden rounded-3xl border border-cyan-400/30 bg-gradient-to-br from-blue-950/70 via-slate-950 to-black p-4 shadow-[0_0_55px_rgba(14,165,233,0.18)] sm:p-6">
+              <div className="absolute -right-10 -top-10 h-48 w-48 rounded-full bg-blue-500/20 blur-3xl" />
+              <img src="/TECH.png" alt="Ingeniería Tech Challenge" className="relative mx-auto h-52 w-full object-contain sm:h-64" />
             </div>
 
-            {/* Floating stats */}
-            <div className="mt-4 grid grid-cols-3 gap-2 sm:gap-4">
+            <div className="overflow-hidden rounded-2xl border border-blue-400/50 bg-white text-slate-950 shadow-[0_0_35px_rgba(14,165,233,0.18)]">
+              <div className="flex items-center gap-3 bg-gradient-to-r from-blue-950 to-blue-700 px-5 py-3 text-lg font-black text-white sm:text-xl">
+                <Rocket className="h-6 w-6 text-cyan-300" /> NIVELES DE PROGRAMACIÓN
+              </div>
+              <div className="grid grid-cols-[1fr_1fr] border-b border-slate-300 bg-slate-100 px-3 py-2 text-xs font-bold sm:grid-cols-[1fr_1.1fr_1fr_1fr] sm:px-4 sm:text-sm">
+                <span>Nivel</span><span>Ciclos participantes</span><span className="hidden sm:block">Hora de inicio</span><span className="hidden sm:block">Hora de fin</span>
+              </div>
               {[
-                { value: 'III', label: 'Edición', color: '#06B6D4' },
-                { value: '3', label: 'Niveles', color: '#3B82F6' },
-                { value: '100', label: 'Pts. máx.', color: '#7C3AED' },
-              ].map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex-1 text-center p-3 rounded-xl"
-                  style={{
-                    background: 'rgba(16, 26, 46, 0.6)',
-                    border: '1px solid rgba(255,255,255,0.06)',
-                  }}
-                >
-                  <div
-                    className="text-xl font-bold font-mono"
-                    style={{ color: stat.color }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div className="text-xs" style={{ color: '#64748B' }}>{stat.label}</div>
+                { level: 'Nivel Básico', cycles: 'I · II · III · IV', start: '10:30 a. m.', end: '11:30 a. m.', color: 'bg-emerald-500' },
+                { level: 'Nivel Intermedio', cycles: 'V · VI · VII', start: '12:00 p. m.', end: '1:30 p. m.', color: 'bg-amber-500' },
+                { level: 'Nivel Avanzado', cycles: 'VIII · IX · X', start: '3:00 p. m.', end: '5:00 p. m.', color: 'bg-red-500' },
+              ].map((row) => (
+                <div key={row.level} className="grid grid-cols-[1fr_1fr] items-center border-b border-slate-200 px-3 py-3 text-xs last:border-0 sm:grid-cols-[1fr_1.1fr_1fr_1fr] sm:px-4 sm:text-sm">
+                  <span className="flex items-center gap-2 font-semibold"><i className={`h-3 w-3 rounded-full ${row.color}`} />{row.level}</span>
+                  <span>{row.cycles}</span><span className="hidden sm:block">{row.start}</span><span className="hidden sm:block">{row.end}</span>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-4 overflow-hidden rounded-2xl border border-blue-400/50 bg-white text-slate-950 shadow-[0_0_35px_rgba(14,165,233,0.14)]">
+              <div className="flex items-center gap-3 bg-gradient-to-r from-blue-950 to-blue-700 px-5 py-3 text-lg font-black text-white sm:text-xl">
+                <Flag className="h-6 w-6 text-amber-300" /> CRONOGRAMA FINAL
+              </div>
+              <div className="grid grid-cols-[1fr_auto] gap-3 border-b border-slate-300 bg-slate-100 px-4 py-2 text-xs font-bold sm:text-sm"><span>Actividad</span><span>Hora</span></div>
+              <div className="grid grid-cols-[1fr_auto] gap-3 border-b border-slate-200 px-4 py-3 text-xs sm:text-sm"><span>📝 Publicación de resultados finales</span><span>5:30 p. m.</span></div>
+              <div className="grid grid-cols-[1fr_auto] gap-3 px-4 py-3 text-xs sm:text-sm"><span className="flex items-center gap-2"><PartyPopper className="h-4 w-4 text-fuchsia-600" /> Premiación sorpresa</span><span className="max-w-40 text-right">Inmediatamente después de los resultados</span></div>
             </div>
           </div>
         </div>

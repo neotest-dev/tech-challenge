@@ -22,8 +22,8 @@ function App() {
       <Navbar />
       <main>
         <Hero />
-        <About />
         <Categories />
+        <About />
         <CompetitionTimeline />
         <Evaluation />
         <Awards />
