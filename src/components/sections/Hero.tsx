@@ -109,7 +109,7 @@ export function Hero() {
                 <span>INSCRIBIRME AHORA</span>
               </a>
               <a
-                href="https://drive.google.com/uc?export=download&id=1uQu5Pa-AOnSSFe0XM7qpC23Io2Z-tHUj"
+                href="https://docs.google.com/document/d/1e66N7zwMmGDxMLsv57B9ulDZOgSBV0ks/edit?usp=sharing&ouid=104279058923693576881&rtpof=true&sd=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-secondary inline-flex w-full items-center justify-center gap-2 text-sm sm:w-auto"
